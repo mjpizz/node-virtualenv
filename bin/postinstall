@@ -2,16 +2,30 @@
 
 var path = require("path");
 var virtualenv = require("../lib/virtualenv");
+
+var isOptional = process.argv.indexOf("--optional") >= 0;
 var packagePath = require.resolve(path.join(process.cwd(), "./package.json"));
 var env = virtualenv(packagePath);
+
+function warn(err) {
+  console.warn("Warning: optional Python helpers were not installed.");
+  console.warn(err.stack);
+}
+
 env.install(function(err) {
   if (err) {
-    if (process.argv.indexOf("--optional")) {
-      console.warn("Warning: optional Python helpers were not installed.");
-      console.warn(err.trace);
+    if (isOptional) {
+      warn(err);
+      return;
     } else {
       throw err;
     }
   }
   console.log("Successfully installed Python helpers.");
 });
+
+if (isOptional) {
+  process.on("uncaughtException", function(err) {
+    warn(err);
+  });
+}
