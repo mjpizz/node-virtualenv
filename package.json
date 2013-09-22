@@ -1,0 +1,40 @@
+{
+
+  "name": "virtualenv",
+  "version": "0.0.1",
+  "description": "install and use Python dependencies in node with virtualenv",
+
+  "keywords": [
+    "python",
+    "virtualenv",
+    "rpc"
+  ],
+
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/mjpizz/node-virtualenv.git"
+  },
+
+  "main": "./lib/virtualenv.js",
+
+  "dependencies": {
+
+    "request": "2.x",
+    "rimraf": "2.x",
+    "tar": "0.x",
+    "zlib": "1.x"
+
+  },
+
+  "bin": {
+    "virtualenv-postinstall": "./bin/postinstall"
+  },
+
+  "license": "MIT",
+
+  "author": {
+    "name": "Matt Pizzimenti",
+    "url": "http://mjpizz.com"
+  }
+
+}

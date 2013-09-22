@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+var path = require("path");
+var virtualenv = require("../lib/virtualenv");
+var packagePath = require.resolve(path.join(process.cwd(), "./package.json"));
+var env = virtualenv(packagePath);
+env.install(function(err) {
+  if (err) {
+    if (process.argv.indexOf("--optional")) {
+      console.warn("Warning: optional Python helpers were not installed.");
+      console.warn(err.trace);
+    } else {
+      throw err;
+    }
+  }
+  console.log("Successfully installed Python helpers.");
+});
