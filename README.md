@@ -23,8 +23,8 @@ For example, let's add Skype4Py as a dependency to our project. In your
     ]
   },
   "scripts": {
-    "postinstall": "./node_modules/.bin/virtualenv-postinstall"
-  }
+    "postinstall": "virtualenv-postinstall"
+  },
 }
 ```
 
