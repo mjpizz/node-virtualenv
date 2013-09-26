@@ -1,14 +1,13 @@
 ## node-virtualenv
 
-node-virtualenv allows you to include Python dependencies in your node projects,
-without cluttering up your system environment.
+node-virtualenv enables Python dependencies in your node projects,
+without cluttering up the system environment.
 
-For example, let's add Skype4Py as a dependency to our project. In your
-**package.json**, we are going to add 3 things:
+For example, let's add Skype4Py as a dependency to a project. In the
+**package.json**, add 2 things:
 
 1. Dependency on `virtualenv` (this library)
-2. Section for "virtualenv", including the version of virtualenv we want.
-3. [Postinstall](https://npmjs.org/doc/scripts.html) to prepare the virtualenv
+2. [Postinstall](https://npmjs.org/doc/scripts.html) to prepare the virtualenv
    every time your module is npm installed.
 
 ```json
@@ -16,16 +15,17 @@ For example, let's add Skype4Py as a dependency to our project. In your
   "dependencies": {
     "virtualenv": "*"
   },
-  "virtualenv": {
-    "version": "1.10.1",
-    "dependencies": [
-      "Skype4Py==1.0.35"
-    ]
-  },
   "scripts": {
     "postinstall": "virtualenv-postinstall"
   },
 }
+```
+
+Next, make a [requirements.txt](http://www.pip-installer.org/en/latest/cookbook.html#requirements-files)
+in the same directory as package.json, containing this line:
+
+```
+Skype4Py==1.0.35
 ```
 
 When you run `npm install`, the Skype4Py dependency will be isolated
@@ -55,6 +55,42 @@ var env = virtualenv(packagePath);
 // This is a child_process running fabric using your virtualenv.
 var child = env.spawn("fab", ["deploy", "-H", "example1.net,example2.net"]);
 ```
+
+## Advanced usage
+
+You can modify the way the virtualenv is created during postinstall.
+For example, if your node module still functions without the Python extras,
+you can make virtualenv optional (in case the user doesn't have Python):
+
+```json
+  "virtualenv": {
+    "optional": true
+  }
+```
+
+Depend on a specific version of virtualenv:
+
+```json
+  "virtualenv": {
+    "version": "1.10.x"
+  }
+```
+
+Send flags to the virtualenv creation command:
+
+```json
+  "virtualenv": {
+    "flags": [
+      "--system-site-packages"
+    ]
+  }
+```
+
+## References
+
+* Official [virtualenv documentation](http://www.virtualenv.org/en/latest/)
+* Official [pip documentation](http://www.pip-installer.org/en/latest/index.html)
+* Heroku [pip article](https://devcenter.heroku.com/articles/python-pip)
 
 ## Contributing
 
