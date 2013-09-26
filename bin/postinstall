@@ -3,9 +3,8 @@
 var path = require("path");
 var virtualenv = require("../lib/virtualenv");
 
-var isOptional = process.argv.indexOf("--optional") >= 0;
-var forceReinstall = process.argv.indexOf("--force") >= 0;
 var packagePath = require.resolve(path.join(process.cwd(), "./package.json"));
+var pkg = require(packagePath);
 var env = virtualenv(packagePath);
 
 function warn(err) {
@@ -13,19 +12,20 @@ function warn(err) {
   console.warn("Warning: optional Python helpers were not installed.");
 }
 
-env.install({force: forceReinstall}, function(err) {
+env.install(function(err) {
   if (err) {
-    if (isOptional) {
+    if (pkg.optional) {
       warn(err);
       return;
     } else {
-      throw err;
+      console.error(err.stack);
+      process.exit(1);
     }
   }
   console.log("Successfully installed Python helpers.");
 });
 
-if (isOptional) {
+if (pkg.optional) {
   process.on("uncaughtException", function(err) {
     warn(err);
   });
