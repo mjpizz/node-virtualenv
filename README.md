@@ -60,9 +60,10 @@ var child = env.spawn("fab", ["deploy", "-H", "example1.net,example2.net"]);
 
 You can modify the way the virtualenv is created during postinstall.
 For example, if your node module still functions without the Python extras,
-you can make virtualenv optional (in case the user doesn't have Python):
+you can make virtualenv optional (in case the user doesn't have Python). Do
+this by adding a "virtualenv" key to your package.json:
 
-```json
+```javascript
   "virtualenv": {
     "optional": true
   }
@@ -70,7 +71,7 @@ you can make virtualenv optional (in case the user doesn't have Python):
 
 Depend on a specific version of virtualenv:
 
-```json
+```javascript
   "virtualenv": {
     "version": "1.10.x"
   }
@@ -78,7 +79,7 @@ Depend on a specific version of virtualenv:
 
 Send flags to the virtualenv creation command:
 
-```json
+```javascript
   "virtualenv": {
     "flags": [
       "--system-site-packages"
