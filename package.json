@@ -22,7 +22,10 @@
     "request": "2.x",
     "rimraf": "2.x",
     "tar": "0.x",
-    "zlib": "1.x"
+    "zlib": "1.x",
+    "coffee-script": "1.x",
+    "pypi": "0.x",
+    "semver": "2.x"
 
   },
 
