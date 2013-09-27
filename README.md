@@ -29,7 +29,7 @@ Skype4Py==1.0.35
 ```
 
 When you run `npm install`, the Skype4Py dependency will be isolated
-in a virtualenv located under **./node_modules/.virtualenv**.
+in a virtualenv located under **.node-virtualenv**.
 
 Next, spawn your isolated Python virtualenv from node:
 
