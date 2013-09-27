@@ -21,6 +21,7 @@
 
     "request": "2.x",
     "rimraf": "2.x",
+    "glob": "3.x",
     "tar": "0.x",
     "zlib": "1.x",
     "coffee-script": "1.x",
