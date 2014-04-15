@@ -24,7 +24,7 @@
     "glob": "3.x",
     "tar": "0.x",
     "zlib": "1.x",
-    "coffee-script": "1.x",
+    "coffee-script": "1.7.x",
     "pypi": "0.x",
     "semver": "2.x"
 
