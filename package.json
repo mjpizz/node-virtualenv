@@ -1,7 +1,7 @@
 {
 
   "name": "virtualenv",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "install and use Python dependencies in node with virtualenv",
 
   "keywords": [
@@ -16,7 +16,9 @@
   },
 
   "main": "./lib/virtualenv.js",
-
+  "engines": {
+      "node": ">=0.6"
+  },
   "dependencies": {
 
     "request": "2.x",
