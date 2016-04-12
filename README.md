@@ -17,7 +17,7 @@ For example, let's add Skype4Py as a dependency to a project. In the
   },
   "scripts": {
     "postinstall": "virtualenv-postinstall"
-  },
+  }
 }
 ```
 
@@ -73,7 +73,7 @@ Depend on a specific version of virtualenv:
 
 ```javascript
   "virtualenv": {
-    "version": "1.10.x"
+    "version": "15.0.x"
   }
 ```
 
