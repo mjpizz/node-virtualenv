@@ -1,7 +1,7 @@
 {
 
   "name": "virtualenv",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "install and use Python dependencies in node with virtualenv",
 
   "keywords": [
@@ -27,7 +27,7 @@
     "tar": "0.x",
     "coffee-script": "1.7.x",
     "pypi": "0.x",
-    "semver": "2.x"
+    "semver": "5.x"
 
   },
 
