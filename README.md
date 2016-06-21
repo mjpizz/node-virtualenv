@@ -87,6 +87,15 @@ Send flags to the virtualenv creation command:
   }
 ```
 
+Launch virtualenv.py using a specific python interpreter
+
+```javascript
+  "virtualenv": {
+    "python": "/path/to/my/python"
+  }
+```
+
+
 ## References
 
 * Official [virtualenv documentation](http://www.virtualenv.org/en/latest/)
