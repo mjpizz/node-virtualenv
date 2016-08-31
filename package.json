@@ -26,9 +26,8 @@
     "rimraf": "2.x",
     "glob": "3.x",
     "tar": "2.x",
-    "coffee-script": "1.7.x",
-    "pypi": "0.x",
-    "semver": "5.x"
+    "semver": "5.x",
+    "xmlrpc": "0.8.x"
 
   },
 
